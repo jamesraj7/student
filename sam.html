@@ -1,0 +1,132 @@
+<div  class="container mt-5">
+            <div class="row ">
+         <div class="col-md-3"></div>
+            <div class="col-md-6 bg-dark bg-gradient m-4 border border-5 border-dark rounded-3 ">
+                <div class="col-md-12  text-warning mt-2"><h1 class="text-center">login Form</h1></div><hr class="text-white"><br>
+        
+         
+          <div class="form-group row">
+           <div class="col-md-3"> <label for="email" class="lable lable-control fw-bolder text-white mt-2 " >EMAIL</label></div>
+              <div class="col-md-9"> <input type="email" class="form-control border border-danger" [(ngModel)] = "email">
+              
+                  <span class="text-danger" >{{msg}}</span></div>
+              </div><br><br><br>
+          <div class="form-group row">
+              <div class="col-md-3"><label for="password" class="lable lable-control fw-bolder text-white mt-2 " >PASSWORD</label></div>
+       <div class="col-md-9"> <input type="password" class="form-control border border-danger" [(ngModel)] = "password" >
+            <div class="row">
+                  
+                    <span class="text-danger" >{{msg1}}</span>
+            </div>
+                
+           
+              </div><br><br>
+          <div class="form-group">
+            <div class="row m-4">
+                
+                <button class="col-md-12 btn btn-primary" type ="submit" value = "submit" (click) = "login()">LOGIN</button>
+                
+                    </div>
+            
+          
+              </div>
+      </div>
+    <div class="col-md-3"></div>
+    </div>
+  </div>
+
+    
+    
+    email:string = "";
+   password:string = "";
+   msg:string="";
+  msg1:string="";
+  msg2:string="";
+   
+   login(){
+    if (this.email == '') {
+      
+      this.msg="enter the email";
+      }
+     else {
+      
+      this.msg="";
+      }
+      
+   if (this.password == '') {
+   this.msg1="enter the password";
+      }
+     
+  
+    else if (this.password.length < 6) {
+      this.msg1="Password is minimum 6 character";
+      }
+     
+      else {
+      
+      this.msg1="";
+      }
+  
+                                      { path:"home", component:HomeComponent}
+                                      let myObj= JSON.parse(localStorage.getItem('Register')) || [];
+        myObj.push({
+            
+            
+             "email": "jamesmsd2000@gmail.com",
+             "password": "Msd2000@",
+             
+             
+            });
+        localStorage.setItem("Register",JSON.stringify(myObj));
+
+
+];
+                                      
+                                      
+                                      import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from './pop-up/pop-up.component';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent  {
+
+  constructor(private dialog : MatDialog) { }
+
+ openDialog(){
+ this.dialog.open(PopUpComponent);
+ }
+
+}
+ localStorage.setItem('email','james@gmail.com');
+ 
+                                      
+                                      
+  options:any[];
+  
+constructor(private service : AutojsonService){}
+
+ngOnInit(){
+
+this.getNames();
+
+
+}
+
+
+getNames(){
+    this.service.getData().subscribe((response:any) => {
+      this.options = response;
+      })}
+    
+for(var i=0;i<districts.length; i++)
+Array.push(districts[i].district);
+                                
+                                
+                                
+                                return this.http.get('./assets/data/api/json.txt')
+      .pipe(
+        map((response:any) => response.map((emp:any) => emp['region']))
+      )
